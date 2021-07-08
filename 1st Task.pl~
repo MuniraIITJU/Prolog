@@ -1,0 +1,16 @@
+male(sohan).
+female(arisha).
+
+son_of(sohan,xxx).
+son_of(arisha,xxx).
+
+daughter_of(sohan,yyy).
+daughter_of(arisha,yyy).
+
+sibling_of(xxx,yyy):-
+    son_of(sohan,xxx,daughter_of(sohan,yyy);
+    son_of(arisha,xxx),daughter_of(arisha,yyy);
+
+
+
+

@@ -1,0 +1,47 @@
+male(joe).
+male(shaon).
+male(sohan).
+male(paul).
+female(jane).
+female(adiba).
+female(shakila).
+female(mary).
+
+
+parent_of(joe,adiba).
+parent_of(joe,shakila).
+parent_of(joe,mary).
+parent_of(joe,shaon).
+parent_of(joe,sohan).
+parent_of(joe,paul).
+parent_of(jane,adiba).
+parent_of(jane,shakila).
+parent_of(jane,mary).
+parent_of(jane,shaon).
+parent_of(jane,sohan).
+parent_of(jane,paul).
+
+
+father_of(X,Y):- male(X),
+    parent_of(X,Y).
+
+mother_of(X,Y):- female(X),
+    parent_of(X,Y) .
+
+son_of(X,Y):- male(X),
+    parent_of(Y,X) .
+
+daughter_of(X,Y):- female(X),
+    parent_of(Y,X) .
+
+sibling_of(X,Y):- female(X),
+    father_of(F,Y), father_of(F,X) .
+
+sister_of(X,Y):- female(X),
+    mother_of(M,Y),mother_of(M,X),X\=Y.
+
+brother_of(X,Y):- male(X),
+    mother_of(M,Y), mother_of(M,X),X\=Y.
+
+sibling_of(X,Y):-mother_of(M,Y),mother_of(M,X),father_of(F,Y),father_of(F,X).
+
